@@ -452,3 +452,7 @@ Go to **Jenkins > Manage Jenkins > Manage Nodes and Clouds > Configure Clouds > 
 
 Configure the seed job as follows
 
+![11](https://user-images.githubusercontent.com/64473684/85941730-36683300-b942-11ea-9399-576e0c36baf4.PNG)
+![0](https://user-images.githubusercontent.com/64473684/85941731-39fbba00-b942-11ea-8ddb-d7078dfa92d4.jpg)
+
+As soon as the developer commits and pushes the **dsl.groovy** script to the GitHub repository, the **Seed_Job** gets triggered
