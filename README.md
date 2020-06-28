@@ -394,5 +394,38 @@ job("Application_Monitoring") {
   }
 }
 ```
+![1](https://user-images.githubusercontent.com/64473684/85941252-6eba4200-b93f-11ea-8d24-e862240408bd.jpg)
+![0](https://user-images.githubusercontent.com/64473684/85941254-71b53280-b93f-11ea-9c6e-cfb88336fd0e.jpg)
+
+**Job 4: Redeployment**
+
+If the Application_Monitoring Job exits with an error code 1, this job gets triggered. It will relaunch all the containers and Deployments on which the application was running. It will do this by simply triggering the Code_Interpreter Job.
+
+```javascript
+job("Redeployment") {
+
+
+  description("Redeploying the Application")
+
+
+  triggers {
+    upstream {
+      upstreamProjects("Application_Monitoring")
+      threshold("FAILURE")
+    }
+  }
+  
+  
+  publishers {
+    postBuildScripts {
+      steps {
+        downstreamParameterized {
+  	  	  trigger("Code_Interpreter")
+        }
+      }
+    }
+  }
+}
+```
 
 
