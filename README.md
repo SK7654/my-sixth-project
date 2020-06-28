@@ -442,3 +442,13 @@ For running this Script, we need to create a Seed_Job inside Jenkins.
 
 Go to **Jenkins > Manage Jenkins > Manage Nodes and Clouds > Configure Clouds > Add a new cloud and provide the credentials and the Docker Server URL of your Local system
 
+![1](https://user-images.githubusercontent.com/64473684/85941503-1c7a2080-b941-11ea-99e1-b8b5d893a2ae.jpg)
+
+**Jenkins:**
+
+![0](https://user-images.githubusercontent.com/64473684/85941506-213ed480-b941-11ea-995f-ecd608fe86de.jpg)
+
+**Job: Seed_Job**
+
+Configure the seed job as follows
+
