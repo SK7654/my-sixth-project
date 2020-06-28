@@ -368,3 +368,31 @@ job("Kubernetes_Deployment") {
   }
 }
 ```
+
+![1](https://user-images.githubusercontent.com/64473684/85941150-b2f91280-b93e-11ea-91d3-6f6e5e2f3700.jpg)
+![0](https://user-images.githubusercontent.com/64473684/85941152-b5f40300-b93e-11ea-817e-10b40ed49363.jpg)
+
+**Job 3: Application_Monitoring**
+
+This Job will monitor our running application, every minute. It will retrieve the running state code from the application. If the code is 200, that means the application is running properly, then the Job will end with exit code 0. but if the code is 500 pointing out to some error, the Job will end with an exit code 1, thereby triggering the next Job.
+
+```javascript
+job("Application_Monitoring") {
+  
+  description("Application Monitoring Job")
+
+
+  triggers {
+     scm("* * * * *")
+   }
+
+
+  steps {
+    
+    shell('export status=$(curl -siw "%{http_code}" -o /dev/null 192.168.99.106:30100); if [ $status -eq 200 ]; then exit 0; else python3 email.py; exit 1; fi')
+
+  }
+}
+```
+
+
