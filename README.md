@@ -473,6 +473,10 @@ Seed job thus creates a chain of all the Jobs we had written a script for.
 
 
 **Kubernetes_Deployment job:**
+![1](https://user-images.githubusercontent.com/64473684/85943687-30c51a00-b94f-11ea-935d-d55320a20f7e.jpg)
+![01](https://user-images.githubusercontent.com/64473684/85943688-33277400-b94f-11ea-90f0-9cbf43e65b52.jpg)
+![0](https://user-images.githubusercontent.com/64473684/85943689-3589ce00-b94f-11ea-971a-2fad8c08b7dc.jpg)
+
 
 
 
