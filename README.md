@@ -427,5 +427,18 @@ job("Redeployment") {
   }
 }
 ```
+![1](https://user-images.githubusercontent.com/64473684/85941349-0029b400-b940-11ea-8305-0a2bd041ac48.jpg)
+![0](https://user-images.githubusercontent.com/64473684/85941352-0324a480-b940-11ea-8c08-b380efe7aa81.jpg)
 
+That was the end of the script.
+
+**The complete Groovy Script is shared in the GitHub link below**
+
+
+
+For running this Script, we need to create a Seed_Job inside Jenkins.
+
+**Before applying the script, make sure to configure a Local cloud inside Jenkins. This is because the Docker plugin build the Docker images on the specific Clouds provided.**
+
+Go to **Jenkins > Manage Jenkins > Manage Nodes and Clouds > Configure Clouds > Add a new cloud and provide the credentials and the Docker Server URL of your Local system
 
