@@ -327,3 +327,44 @@ job("Code_Interpreter") {
   }
 }
 ```
+![1](https://user-images.githubusercontent.com/64473684/85941061-12a2ee00-b93e-11ea-85ca-fa412a8b023b.jpg)
+![0](https://user-images.githubusercontent.com/64473684/85941062-159dde80-b93e-11ea-8896-7ef40f0f7851.jpg)
+
+**Job 2: Kubernetes_Deployment
+
+This Job will take inputs from the Code_Interpreter Job to know the code language and will create the volumes, deployments and the services using the configuration files we had created earlier.
+
+```javascript
+job("Kubernetes_Deployment") {
+
+
+  description("Kubernetes job")
+    
+  triggers {
+    upstream {
+      upstreamProjects("Code_Interpreter")
+      threshold("SUCCESS")
+    }  
+  }
+
+
+  steps {
+    if(shell("ls /groovy/code | grep php | wc -l")) {
+
+
+      shell("if sudo kubectl get deployments | grep html-dep; then sudo kubectl rollout restart deployment/html-dep; sudo kubectl rollout status deployment/html-dep; else if kubectl get pvc | grep http-pv-claim; then sudo kubectl delete pvc --all; kubectl create -f /groovy/dep/http_pv_claim.yml; else sudo kubectl create -f /groovy/dep/http_pv_claim.yml; fi; if sudo kubectl get pv | grep http-pv; then sudo kubectl delete pv --all; sudo kubectl create -f /groovy/dep/http_pv.yml; else sudo kubectl create -f /groovy/dep/http_pv.yml; fi; kubectl create -f /groovy/dep/http_dep.yml; kubectl create -f /groovy/dep/service.yml; kubectl get all; fi")       
+
+
+  }
+
+
+    else {
+
+
+      shell("if sudo kubectl get deployments | grep php-dep; then sudo kubectl rollout restart deployment/php-dep; sudo kubectl rollout status deployment/php-dep; else if kubectl get pvc | grep php-pv-claim; then sudo kubectl delete pvc --all; kubectl create -f /groovy/dep/php_pv_claim.yml; else sudo kubectl create -f /groovy/dep/php_pv_claim.yml; fi; if sudo kubectl get pv | grep php-pv; then sudo kubectl delete pv --all; sudo kubectl create -f /groovy/dep/php_pv.yml; else sudo kubectl create -f /groovy/dep/php_pv.yml; fi; kubectl create -f /groovy/dep/php_dep.yml; kubectl create -f /groovy/dep/service.yml; kubectl get all; fi")
+
+
+    }
+  }
+}
+```
