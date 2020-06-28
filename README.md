@@ -459,3 +459,7 @@ As soon as the developer commits and pushes the **dsl.groovy** script to the Git
 
 ![0](https://user-images.githubusercontent.com/64473684/85942453-0ec79980-b947-11ea-8f64-d725954ef384.jpg)
 
+![0](https://user-images.githubusercontent.com/64473684/85943048-1d17b480-b94b-11ea-8673-f45c931cd393.jpg)
+
+Seed job thus creates a chain of all the Jobs we had written a script for.
+
